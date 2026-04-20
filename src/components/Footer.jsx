@@ -135,7 +135,7 @@ const Footer = () => {
           </div>
           {/* Decorative gradient dot in center of divider */}
           <div className="relative flex justify-center">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+            <div className="h-px w-16 bg-linear-to-r from-transparent via-primary to-transparent"></div>
           </div>
         </div>
 
