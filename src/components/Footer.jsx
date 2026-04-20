@@ -1,8 +1,12 @@
 const Footer = () => {
   return (
     // 1. Full dark background
-    <footer className="bg-zinc-950 border-t border-white/5">
-      <div className="app-container max-w-7xl mx-auto px-6 py-12 md:py-20">
+    <footer className="relative bg-zinc-950 border-t border-white/5 overflow-hidden">
+      {/* Background Glow Decoration */}
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 blur-3xl rounded-full pointer-events-none"></div>
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500/10 blur-3xl rounded-full pointer-events-none"></div>
+
+      <div className="app-container relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-12">
           {/* Column 1: Brand (Takes full width on mobile, partial on desktop) */}
           <div className="md:col-span-5 space-y-6">
@@ -33,10 +37,11 @@ const Footer = () => {
                 {["Home", "AI Types", "Benefits", "Contact"].map((item) => (
                   <li key={item}>
                     <a
-                      href={`#${item.toLowerCase().replace(" ", "")}`}
-                      className="hover:text-primary transition-all hover:translate-x-1 inline-block duration-500"
+                      href={`#${item === "AI Types" ? "types" : item.toLowerCase().replace(" ", "")}`}
+                      className="group relative text-gray-400 hover:text-white transition-all duration-300 inline-block"
                     >
                       {item}
+                      <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
                     </a>
                   </li>
                 ))}
@@ -103,7 +108,7 @@ const Footer = () => {
                   <a
                     key={social.name}
                     href="#"
-                    className="w-10 h-10 rounded-lg bg-zinc-900 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white border border-white/5 transition-all duration-300 transform active:scale-95 group"
+                    className="w-10 h-10 rounded-xl bg-zinc-900/50 backdrop-blur-sm flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white border border-white/10 hover:border-primary/50 transition-all duration-500 transform hover:-translate-y-1 active:scale-95 group"
                     aria-label={social.name}
                   >
                     <span className="sr-only">{social.name}</span>
